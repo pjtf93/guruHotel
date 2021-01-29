@@ -1,10 +1,13 @@
 import React from 'react';
+import Link from 'next/link';
 
 const NavBar = () => {
   return (
     <>
       <div>
-        <h1>GuruFinder</h1>
+        <Link href="/">
+          <a>GuruFinder</a>
+        </Link>
       </div>
     </>
   );

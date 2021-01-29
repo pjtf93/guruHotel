@@ -16,6 +16,7 @@ const Results = ({ data }) => {
 export default Results;
 
 export async function getServerSideProps({ query }) {
+  console.log(query);
   const API_KEY = process.env.API_KEY;
   const searchQuery = `query{search(term: "burrito", location: "Miami", limit: 2) {
         business {
