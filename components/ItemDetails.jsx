@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import Reviews from './Reviews';
 
@@ -19,15 +20,7 @@ const ItemDetails = ({ id, data }) => {
     <>
       {selectedItem && (
         <div>
-          <img
-            src={selectedItem.photos[0]}
-            style={{
-              maxWidth: '1000px',
-              objectFit: 'cover',
-              height: '500px',
-              width: '100%',
-            }}
-          />
+          <Image src={`${selectedItem.photos[0]}`} height={200} width={200} />
           <h1>{selectedItem.name}</h1>
           <span>{selectedItem.rating}</span>
           {/* <span>{star.repeat(selectedItem.rating)} Stars </span> */}

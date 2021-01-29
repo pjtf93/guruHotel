@@ -6,23 +6,24 @@ const SearchBar = () => {
 
   const [findValue, setFindValue] = useState('');
   const [locationValue, setLocationValue] = useState('');
-  const [searchValues, setSearchValues] = useState([]);
-
-  console.log(findValue);
-  console.log(locationValue);
-  console.log(searchValues);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (findValue !== '' && locationValue !== '') {
-      setSearchValues([findValue, locationValue]);
       router.push({
         pathname: '/search/[query]',
         query: { query: findValue, location: locationValue },
       });
-
       resetInputField();
+    } else if (locationValue !== '') {
+      router.push({
+        pathname: '/search/[query]',
+        query: { query: locationValue },
+      });
+      resetInputField();
+    } else {
+      alert('Please fill the location');
     }
   };
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 
 const Item = ({ data }) => {
   const tipo = data.rating;
@@ -6,14 +7,17 @@ const Item = ({ data }) => {
 
   return (
     <div>
-      <img
-        src={data.photos[0]}
-        style={{
-          maxWidth: '100px',
-          objectFit: 'cover',
-          height: '50px',
-          width: '100%',
-        }}
+      <Image
+        // src={data.photos[0]}
+        src={`${data.photos[0]}`}
+        height={200}
+        width={200}
+        // style={{
+        //   maxWidth: '100px',
+        //   objectFit: 'cover',
+        //   height: '50px',
+        //   width: '100%',
+        // }}
       />
       <h1>{data.name}</h1>
       <span>
