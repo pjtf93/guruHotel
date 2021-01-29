@@ -8,7 +8,7 @@ const ResultList = ({ data }) => {
     <>
       <div style={{ display: 'flex' }}>
         <ul style={{ width: '50%' }}>
-          {data.map((x) => {
+          {data?.map((x) => {
             return (
               <li
                 key={x.id}

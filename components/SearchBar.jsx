@@ -19,7 +19,7 @@ const SearchBar = () => {
       setSearchValues([findValue, locationValue]);
       router.push({
         pathname: '/search/[query]',
-        query: { query: searchValues },
+        query: { query: findValue, location: locationValue },
       });
 
       resetInputField();

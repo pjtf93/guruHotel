@@ -16,9 +16,11 @@ const Results = ({ data }) => {
 export default Results;
 
 export async function getServerSideProps({ query }) {
-  console.log(query);
   const API_KEY = process.env.API_KEY;
-  const searchQuery = `query{search(term: "burrito", location: "Miami", limit: 2) {
+  const location = query.location ? query.location : 'miami';
+  const itemQuery = query.query;
+
+  const searchQuery = `query{search(term:"${itemQuery}", location:"${location}", limit: 10) {
         business {
           id
           photos
@@ -76,6 +78,7 @@ export async function getServerSideProps({ query }) {
 
   const response = await fetch('https://api.yelp.com/v3/graphql', options);
   const data = await response.json();
+  console.log(data);
 
   return {
     props: { data: data.data.search.business },
