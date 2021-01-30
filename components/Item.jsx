@@ -4,7 +4,7 @@ import Image from 'next/image';
 const Item = ({ data }) => {
   const tipo = data.rating;
   const star = '⭐️';
-
+  // console.log(data.photos[0]);
   return (
     <div>
       <Image
@@ -12,6 +12,7 @@ const Item = ({ data }) => {
         src={`${data.photos[0]}`}
         height={200}
         width={200}
+        alt={data.name}
         // style={{
         //   maxWidth: '100px',
         //   objectFit: 'cover',

@@ -20,7 +20,12 @@ const ItemDetails = ({ id, data }) => {
     <>
       {selectedItem && (
         <div>
-          <Image src={`${selectedItem.photos[0]}`} height={200} width={200} />
+          <Image
+            src={`${selectedItem.photos[0]}`}
+            height={200}
+            width={200}
+            alt={data.name}
+          />
           <h1>{selectedItem.name}</h1>
           <span>{selectedItem.rating}</span>
           {/* <span>{star.repeat(selectedItem.rating)} Stars </span> */}
