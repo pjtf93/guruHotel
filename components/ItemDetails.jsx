@@ -1,8 +1,10 @@
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
+
+import Hours from './Hours';
 import Reviews from './Reviews';
 
-const ItemDetails = ({ id, data }) => {
+const ItemDetails = ({ id, data, key }) => {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const filterItem = (id) => {
@@ -19,27 +21,41 @@ const ItemDetails = ({ id, data }) => {
   return (
     <>
       {selectedItem && (
-        <div>
-          <Image
-            src={`${selectedItem.photos[0]}`}
-            height={200}
-            width={200}
-            alt={data.name}
-          />
-          <h1>{selectedItem.name}</h1>
-          <span>{selectedItem.rating}</span>
-          {/* <span>{star.repeat(selectedItem.rating)} Stars </span> */}
-          <span>{selectedItem.review_count} Reviews </span>
-          <span>{selectedItem.display_phone}</span>
-          {/* <span>
-            {selectedItem.location.address1} {selectedItem.location.city},{' '}
-            {selectedItem.location.state}{' '}
-          </span> */}
-          <span>{selectedItem.location.formatted_address}</span>
-          <span>{selectedItem.price}</span>
-          <span>{selectedItem.hours.is_open_now}</span>
-          {/* <span>{selectedItem.hours.open[0].start}</span> */}
-          <Reviews data={selectedItem} />
+        <div key={key} className="item-details-box">
+          {/* <img src={`${selectedItem?.photos[0]}`} alt={data?.name} /> */}
+          <div className="item-details-image">
+            <Image
+              key={selectedItem.id}
+              src={`${selectedItem.photos[0]}`}
+              height={425}
+              width={800}
+            />
+          </div>
+
+          <div>
+            <h1>{selectedItem?.name}</h1>
+            <div className="item-details-contact">
+              <div>
+                <span>{selectedItem?.rating} stars |</span>
+                <span> {selectedItem?.review_count} Reviews </span>
+              </div>
+              <span>Address: {selectedItem?.location.formatted_address}</span>
+            </div>
+            <div className="item-details-contact">
+              {selectedItem.is_closed ? (
+                <span className="item-details-closed">Closed Now'</span>
+              ) : (
+                <span className="item-details-open">Open Now</span>
+              )}
+              <span>Phone: {selectedItem?.display_phone}</span>
+            </div>
+          </div>
+          <span className="item-details-price">
+            Price: {selectedItem?.price}
+          </span>
+
+          <Hours data={selectedItem?.hours[0]?.open} />
+          <Reviews data={selectedItem.reviews} />
         </div>
       )}
     </>

@@ -41,21 +41,32 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
-      <h1>Guru Hotel</h1>
+    <div className="search-bar-container">
+      <h1>Guru Finder</h1>
+      <span>Find and review the best places around you</span>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={findValue}
-          onChange={handleFindChange}
-          placeholder="Find"
-        />
-        <input
-          type="text"
-          value={locationValue}
-          onChange={handleLocationChange}
-          placeholder="Location"
-        />
+        <div className="search-bar-box">
+          <label className="search-bar-label" htmlFor="">
+            Find
+          </label>
+          <input
+            type="text"
+            value={findValue}
+            onChange={handleFindChange}
+            placeholder="What are you looking?"
+          />
+        </div>
+        <div className="search-bar-box">
+          <label className="search-bar-label search-bar-label-2" htmlFor="">
+            Close to
+          </label>
+          <input
+            type="text"
+            value={locationValue}
+            onChange={handleLocationChange}
+            placeholder="Where are you at?"
+          />
+        </div>
         <button type="submit">Search</button>
       </form>
     </div>

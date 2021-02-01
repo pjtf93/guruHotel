@@ -6,20 +6,8 @@ import styles from '../styles/Home.module.css';
 export default function Home() {
   return (
     <>
-      <NavBar />
-      <div
-        style={{
-          backgroundColor: 'red',
-          height: '80vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <div>
-          <SearchBar />
-        </div>
-      </div>
+      {/* <NavBar /> */}
+      <SearchBar />
     </>
   );
 }

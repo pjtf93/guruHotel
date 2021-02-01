@@ -4,9 +4,9 @@ import Link from 'next/link';
 const NavBar = () => {
   return (
     <>
-      <div>
+      <div className="navbar-container">
         <Link href="/">
-          <a>GuruFinder</a>
+          <a className="navbar-link">Guru Finder</a>
         </Link>
       </div>
     </>

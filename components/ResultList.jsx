@@ -6,23 +6,24 @@ const ResultList = ({ data }) => {
   const [selected, setSelected] = useState(null);
   return (
     <>
-      <div style={{ display: 'flex' }}>
-        <ul style={{ width: '50%' }}>
-          {data?.map((x) => {
+      <div className="result-list-container">
+        <ul className="result-list-box">
+          {data?.map((x, i) => {
             return (
-              <li
-                key={x.id}
-                style={{ listStyleType: 'none' }}
-                onClick={() => setSelected(x.id)}
-              >
-                <Item data={x} />
+              <li key={x.id} onClick={() => setSelected(x.id)}>
+                <Item data={x} index={i} />
               </li>
             );
           })}
         </ul>
-        <div style={{ width: '50%' }}>
-          <h1>Selected item</h1>
-          {selected ? <ItemDetails id={selected} data={data} /> : null}
+        <div className="result-details">
+          {selected ? (
+            <ItemDetails id={selected} data={data} key={data.id} />
+          ) : (
+            <div>
+              <p>Select an item if you would like to know more about it</p>
+            </div>
+          )}
         </div>
       </div>
     </>
