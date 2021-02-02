@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
 const Item = ({ data, index, recently }) => {
-  console.log(index);
   return (
     <div className="item-container">
       <div className={recently ? 'item-box-image-recently' : 'item-box-image'}>
