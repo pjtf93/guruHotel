@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 const Item = ({ data, index, recently }) => {
+  console.log(index);
   return (
     <div className="item-container">
       <div className={recently ? 'item-box-image-recently' : 'item-box-image'}>
@@ -13,7 +14,7 @@ const Item = ({ data, index, recently }) => {
         />
       </div>
       <div className={recently ? 'item-box-recently' : 'item-box'}>
-        {index ? (
+        {index !== undefined ? (
           <h1>
             {index + 1}. {data?.name}
           </h1>
@@ -26,8 +27,6 @@ const Item = ({ data, index, recently }) => {
         <span>
           {data?.rating} stars | {data?.review_count} Reviews
         </span>
-
-        <span> </span>
         <span>Phone: {data?.display_phone}</span>
         <span>{data?.location.formatted_address}</span>
       </div>

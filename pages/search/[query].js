@@ -2,9 +2,8 @@ import Head from 'next/head';
 import NavBar from '../../components/NavBar';
 import ResultList from '../../components/ResultList';
 import fetchItems from '../../lib/fetchItems';
-import { store } from '../../store';
 import { useDispatch, useSelector } from 'react-redux';
-import { setData, selectAllItems } from '../../features/items/itemsSlice';
+import { setData } from '../../features/items/itemsSlice';
 import { useEffect } from 'react';
 
 const Results = ({ data }) => {
@@ -31,7 +30,7 @@ const Results = ({ data }) => {
 
 export default Results;
 
-export async function getServerSideProps({ store, query }) {
+export async function getServerSideProps({ query }) {
   const data = await fetchItems(query);
 
   return {
