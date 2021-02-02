@@ -2,13 +2,14 @@ import { useState } from 'react';
 import Item from './Item';
 import ItemDetails from './ItemDetails';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { selectAllItems, setViewItem } from '../features/items/itemsSlice';
 
 const ResultList = ({ data }) => {
   const dispatch = useDispatch();
   const [selected, setSelected] = useState(null);
   const datos = useSelector(selectAllItems);
+
+  const [seleccion, setSeleccion] = useState(null);
 
   const selectedItem = (id) => {
     dispatch(setViewItem({ id }));
@@ -27,9 +28,18 @@ const ResultList = ({ data }) => {
             );
           })}
         </ul>
-        <div className="result-details">
+        <div
+          className="result-details"
+          style={{ display: selected ? 'flex' : 'none' }}
+        >
           {selected ? (
-            <ItemDetails id={selected} data={data} key={data.id} />
+            <ItemDetails
+              id={selected}
+              data={data}
+              key={data.id}
+              seleccion={seleccion}
+              setSelected={setSelected}
+            />
           ) : (
             <div>
               <p>Select an item if you would like to know more about it</p>

@@ -1,60 +1,50 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-
 import Hours from './Hours';
 import Reviews from './Reviews';
+import { useSelector } from 'react-redux';
+import { selectedItemById } from '../features/items/itemsSlice';
 
-const ItemDetails = ({ id, data, key }) => {
-  const [selectedItem, setSelectedItem] = useState(null);
-
-  const filterItem = (id) => {
-    const item = data.filter((x) => {
-      return x.id.includes(id);
-    });
-    setSelectedItem(item[0]);
-  };
-
-  useEffect(() => {
-    filterItem(id);
-  }, [id]);
+const ItemDetails = ({ id, key, setSelected }) => {
+  // const [selectedItem, setSelectedItem] = useState(null);
+  const data = useSelector((state) => selectedItemById(state, id));
 
   return (
     <>
-      {selectedItem && (
+      {data && (
         <div key={key} className="item-details-box">
+          <button className="item-close" onClick={() => setSelected(null)}>
+            Close
+          </button>
           <div className="item-details-image">
             <Image
-              key={selectedItem.id}
-              src={`${selectedItem.photos[0]}`}
+              key={data.id}
+              src={`${data.photos[0]}`}
               height={425}
               width={800}
             />
           </div>
-
           <div>
-            <h1>{selectedItem?.name}</h1>
+            <h1>{data?.name}</h1>
             <div className="item-details-contact">
-              <div>
-                <span>{selectedItem?.rating} stars |</span>
-                <span> {selectedItem?.review_count} Reviews </span>
+              <div className="item-details-rating">
+                <span>{data?.rating} stars |</span>
+                <span> {data?.review_count} Reviews </span>
               </div>
-              <span>Address: {selectedItem?.location.formatted_address}</span>
+              <span>Address: {data?.location.formatted_address}</span>
             </div>
             <div className="item-details-contact">
-              {selectedItem.is_closed ? (
+              {data.is_closed ? (
                 <span className="item-details-closed">Closed Now</span>
               ) : (
                 <span className="item-details-open">Open Now</span>
               )}
-              <span>Phone: {selectedItem?.display_phone}</span>
+              <span>Phone: {data?.display_phone}</span>
             </div>
           </div>
-          <span className="item-details-price">
-            Price: {selectedItem?.price}
-          </span>
-
-          <Hours data={selectedItem?.hours[0]?.open} />
-          <Reviews data={selectedItem.reviews} />
+          <span className="item-details-price">Price: {data?.price}</span>
+          <Hours data={data?.hours[0]?.open} />
+          <Reviews data={data.reviews} />
         </div>
       )}
     </>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectAllItems } from '../features/items/itemsSlice';
 import Item from './Item';

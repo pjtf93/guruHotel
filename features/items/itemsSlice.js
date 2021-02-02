@@ -21,6 +21,8 @@ const itemsSlice = createSlice({
 
 export const { setData, setViewItem } = itemsSlice.actions;
 export const selectAllItems = (state) => state.items.data;
+export const selectedItemById = (state, id) =>
+  state.items.data.find((item) => item.id == id);
 export const selectViewedItems = (state) =>
   state.items.data.filter((item) => item.viewed === true);
 
