@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap');
 body {
   font-family: 'Nunito Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
 }
 
 .navbar-container {
@@ -13,14 +24,53 @@ body {
   }
 }
 
+.recently-viewed-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .recently-viewed-box {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .recently-viewed-item {
+      width: 33%;
+      padding: 10px 10px;
+
+      .item-box-image-recently {
+        display: flex;
+        justify-content: center;
+        img {
+          object-fit: cover;
+          border-radius: 4px;
+        }
+      }
+      .item-box-recently {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+          font-size: 24px;
+          margin: 0;
+        }
+        span {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
 .search-bar-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //   height: 100%;
   height: 100vh;
-  //   margin-top: 15%;
   background-image: url('https://picsum.photos/id/299/2000/1000?blur=6');
   background-size: cover;
   background-repeat: no-repeat;
@@ -44,25 +94,14 @@ body {
   }
 
   form {
-    // width: 100%;
     display: flex;
     justify-content: center;
-    // border: 1px solid #acacb3;
     border-radius: 6px;
-    // padding: 6px;
-
     background-color: white;
-    // margin: 20px;
+
     input {
       font-size: 20px;
       border: none;
-      //   padding: 12px;
-      // width: fit-content;
-      // width: 30%;
-      // margin-left: 10px;
-      // min-width: 50%;
-      // width: 90%;
-      // padding-right: 100px;
     }
 
     .search-bar-label {
@@ -102,7 +141,6 @@ body {
     position: sticky;
     top: 50px;
     overflow-y: auto;
-    // max-height: calc(100vh - 50px);
     height: 100vh;
     margin: 0;
     padding: 0px 20px;
@@ -121,7 +159,6 @@ body {
         width: 45%;
         img {
           object-fit: cover;
-          //   max-width: 200px;
           border-radius: 4px;
           height: 180px;
         }
@@ -130,7 +167,6 @@ body {
       .item-box {
         display: flex;
         flex-direction: column;
-        // justify-content: center;
         width: 50%;
 
         h1 {
@@ -152,13 +188,9 @@ body {
     justify-content: center;
     width: 60%;
     .item-details-box {
-      //   position: sticky;
-      //   top: 10%;
-      //   top: 16px;
       display: flex;
       flex-direction: column;
       width: 60%;
-      //   align-items: ;
 
       h1 {
         margin: 0;
@@ -203,7 +235,6 @@ body {
 
           .item-review-user {
             display: flex;
-            // align-items: center;
             margin-bottom: 6px;
 
             .item-review-user-info {
@@ -240,7 +271,6 @@ body {
         }
 
         .item-hours-details {
-          //   display: flex;
           border-bottom: 1px solid;
           border-top: 1px solid;
           border-left: 1px solid;

@@ -1,16 +1,27 @@
 import { useState } from 'react';
 import Item from './Item';
 import ItemDetails from './ItemDetails';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { selectAllItems, setViewItem } from '../features/items/itemsSlice';
 
 const ResultList = ({ data }) => {
+  const dispatch = useDispatch();
   const [selected, setSelected] = useState(null);
+  const datos = useSelector(selectAllItems);
+
+  const selectedItem = (id) => {
+    dispatch(setViewItem({ id }));
+    setSelected(id);
+  };
+
   return (
     <>
       <div className="result-list-container">
         <ul className="result-list-box">
-          {data?.map((x, i) => {
+          {datos?.map((x, i) => {
             return (
-              <li key={x.id} onClick={() => setSelected(x.id)}>
+              <li key={x.id} onClick={() => selectedItem(x.id)}>
                 <Item data={x} index={i} />
               </li>
             );

@@ -25,9 +25,9 @@ const Hours = ({ data }) => {
       <div className="item-hours-container">
         <h3>Schedule</h3>
         <div className="item-hours-box">
-          {data?.map((x) => {
+          {data?.map((x, i) => {
             return (
-              <div className="item-hours-details">
+              <div className="item-hours-details" key={i}>
                 <p>{numberToDay(x.day)}</p>
                 <p>{addColon(x.start)}</p>
                 <p>{addColon(x.end)}</p>

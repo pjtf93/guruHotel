@@ -22,7 +22,6 @@ const ItemDetails = ({ id, data, key }) => {
     <>
       {selectedItem && (
         <div key={key} className="item-details-box">
-          {/* <img src={`${selectedItem?.photos[0]}`} alt={data?.name} /> */}
           <div className="item-details-image">
             <Image
               key={selectedItem.id}
@@ -43,7 +42,7 @@ const ItemDetails = ({ id, data, key }) => {
             </div>
             <div className="item-details-contact">
               {selectedItem.is_closed ? (
-                <span className="item-details-closed">Closed Now'</span>
+                <span className="item-details-closed">Closed Now</span>
               ) : (
                 <span className="item-details-open">Open Now</span>
               )}

@@ -1,12 +1,10 @@
 import Head from 'next/head';
-import NavBar from '../components/NavBar';
+import RecentlyView from '../components/RecentlyView';
 import SearchBar from '../components/SearchBar';
-import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
     <>
-      {/* <NavBar /> */}
       <Head>
         <title>Guru Finder</title>
         <meta
@@ -15,6 +13,7 @@ export default function Home() {
         />
       </Head>
       <SearchBar />
+      <RecentlyView />
     </>
   );
 }
