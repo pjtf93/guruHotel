@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Guru Finder
 
-## Getting Started
+Español.
 
-First, run the development server:
+Te presento a Guru Finder, una web app construida sobre la API de Yelp, la cual te deja explorar sitios cercanos a ti y conocer lo que opina la gente sobre ellos.
+
+Para usar la app solo tienes que dirigirte a este [link](https://guru-hotel.vercel.app/) e introducir en el formulario lo que estas buscando y el lugar donde te encuentras.
+
+La aplicacion esta hecha con NextJS, SASS, Redux y la GraphQL API de Yelp
+
+Para ejecutar esta aplicacion en tu ambiente local debes ejecutar los siguientes comandos:
 
 ```bash
+git clone https://github.com/pjtf93/guruHotel.git
+
+npm install
+
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Es importante tener en cuenta que necesitas registrarte en [Yelp GraphQL API](https://www.yelp.com/developers/graphql/guides/intro) para obtener un API KEY valido y poder hacer uso de la API.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+English.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+This is Guru Finder, a web app built upon the Yelp API that let's you find all kind of things near your location.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+In order to use the app you just need to go to this [link](https://guru-hotel.vercel.app/) a type what you are looking and where are you in the form.
 
-## Learn More
+This app was built with NextJS, SASS, Redux and the Yelp GraphQL API.
 
-To learn more about Next.js, take a look at the following resources:
+To execute the app in your local envorioament you just need to follow these commands:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git clone https://github.com/pjtf93/guruHotel.git
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+npm install
 
-## Deploy on Vercel
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+It's important to note that you need to create an account in [Yelp GraphQL API](https://www.yelp.com/developers/graphql/guides/intro) in order to get a valid API KEY for you to be able to use the API.
