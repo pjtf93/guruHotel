@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Hours from './Hours';
 import Reviews from './Reviews';
@@ -6,7 +5,6 @@ import { useSelector } from 'react-redux';
 import { selectedItemById } from '../features/items/itemsSlice';
 
 const ItemDetails = ({ id, key, setSelected }) => {
-  // const [selectedItem, setSelectedItem] = useState(null);
   const data = useSelector((state) => selectedItemById(state, id));
 
   return (

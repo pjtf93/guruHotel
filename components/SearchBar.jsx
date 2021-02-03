@@ -1,11 +1,18 @@
+import Router from 'next/router';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 const SearchBar = () => {
   const router = useRouter();
+  const [showNote, setShowNote] = useState(false);
+  const [disableButton, setDisableButton] = useState(false);
 
   const [findValue, setFindValue] = useState('');
   const [locationValue, setLocationValue] = useState('');
+
+  Router.events.on('routeChangeStart', () => {
+    setDisableButton(true);
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,21 +22,15 @@ const SearchBar = () => {
         pathname: '/search/[query]',
         query: { query: findValue, location: locationValue },
       });
-      resetInputField();
     } else if (locationValue !== '') {
       router.push({
         pathname: '/search/[query]',
         query: { query: locationValue },
       });
-      resetInputField();
+      setShowNote(false);
     } else {
-      alert('Please fill the location');
+      setShowNote(true);
     }
-  };
-
-  const resetInputField = () => {
-    setFindValue('');
-    setLocationValue('');
   };
 
   const handleFindChange = (event) => {
@@ -58,7 +59,7 @@ const SearchBar = () => {
         </div>
         <div className="search-bar-box">
           <label className="search-bar-label search-bar-label-2" htmlFor="">
-            Close to
+            Near
           </label>
           <input
             type="text"
@@ -67,8 +68,17 @@ const SearchBar = () => {
             placeholder="Where are you at?"
           />
         </div>
-        <button type="submit">Search</button>
+        <button disabled={disableButton} type="submit">
+          Search
+        </button>
       </form>
+      {showNote && <span> Alert: Please fill at least one field</span>}
+      {disableButton && (
+        <span>
+          Looking for {findValue ? findValue : 'activities'} near{' '}
+          {locationValue}...
+        </span>
+      )}
     </div>
   );
 };
